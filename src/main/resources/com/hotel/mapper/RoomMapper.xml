@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotel.mapper.RoomMapper">
+    <resultMap id="room" type="com.hotel.domain.RoomVO">
+        <id column="room_no" property="roomNo" />
+        <result column="room_grade" property="roomGrade" />
+        <result column="price" property="price" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <select id="getRoomList" resultMap="room">
+        SELECT * FROM ROOM
+    </select>
+</mapper>
