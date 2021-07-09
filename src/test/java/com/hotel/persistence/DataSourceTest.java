@@ -1,6 +1,5 @@
 package com.hotel.persistence;
 
-
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.apache.ibatis.session.SqlSession;
