@@ -13,44 +13,57 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ include file="../include/header.jsp"%>
+<style>
+    h1 {
+        text-align: center;
+    }
+    .content-main {
+        padding: 0 40%;
+    }
 
-<div class="all">
+    div {
+        text-align: center;
+    }
+</style>
+<div class="content-all">
     <h1> ROOM DETAIL </h1>
-    <div class="card">
-        <div class="card-header">호실</div>
-        <div class="card-body"><c:out value="${getRoom.rno}"/></div>
-    </div>
-    <br>
-    <div class="card">
-        <div class="card-header">등급</div>
-        <div class="card-body"><c:out value="${getRoom.grade}"/></div>
-    </div><br>
-    <div class="card">
-        <div class="card-header">가격</div>
-        <div class="card-body"><c:out value="${getRoom.price}"/></div>
-    </div><br>
-    <div class="card">
-        <div class="card-header">상태</div>
-        <div class="card-body ">
-            <c:out value="${getRoom.status}"/> :
-            <c:choose>
-                <c:when test="${getRoom.status  == '0'}">
-                   예약대기
-                </c:when>
-                <c:when test="${getRoom.status  == '1'}">
-                    예약완료
-                </c:when>
-                <c:when test="${getRoom.status == '2'}">
-                    입실완료
-                </c:when>
-                <c:when test="${getRoom.status == '3'}">
-                    하우스키핑
-                </c:when>
-            </c:choose>
+    <div class="content-main">
+        <div class="card">
+            <div class="card-header">호실</div>
+            <div class="card-body"><c:out value="${getRoom.rno}"/></div>
         </div>
-    </div><br>
-    <button type="submit" class="btn btn-outline-secondary" onclick="location.href='update?rno=<c:out value="${getRoom.rno}" />'">Update</button>
-    <button type="submit" data-oper="list" class="btn btn-outline-info"  onclick="location.href='/'">List</button>
+        <br>
+        <div class="card">
+            <div class="card-header">등급</div>
+            <div class="card-body"><c:out value="${getRoom.grade}"/></div>
+        </div><br>
+        <div class="card">
+            <div class="card-header">가격</div>
+            <div class="card-body"><c:out value="${getRoom.price}"/></div>
+        </div><br>
+        <div class="card">
+            <div class="card-header">상태</div>
+            <div class="card-body ">
+                <c:out value="${getRoom.status}"/> :
+                <c:choose>
+                    <c:when test="${getRoom.status  == '0'}">
+                       예약대기
+                    </c:when>
+                    <c:when test="${getRoom.status  == '1'}">
+                        예약완료
+                    </c:when>
+                    <c:when test="${getRoom.status == '2'}">
+                        입실완료
+                    </c:when>
+                    <c:when test="${getRoom.status == '3'}">
+                        하우스키핑
+                    </c:when>
+                </c:choose>
+            </div>
+        </div><br>
+        <button type="submit" class="btn btn-outline-secondary" onclick="location.href='update?rno=<c:out value="${getRoom.rno}" />'">Update</button>
+        <button type="submit" data-oper="list" class="btn btn-outline-info"  onclick="location.href='/'">List</button>
+    </div>
 </div>
 
 

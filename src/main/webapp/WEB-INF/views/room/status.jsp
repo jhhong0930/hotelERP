@@ -18,28 +18,31 @@
         justify-content: center;
     }
 
+
     .room-status {
         width: 200px;
         height: 200px;
-        border: 1px solid lightblue;
+        border: 1px solid darkslategrey;
         margin: 10px;
         text-align: center;
     }
 
     .all {
-        padding: 0 300px;
+        padding: 0 10%;
+        background-color: darkslategrey;
     }
 
     .room-status-color {
-        background-color: white;
+        background-color: #E2C3AB;
     }
 
     .room-status:hover {
-        background-color: mediumturquoise;
+        background-color: dimgrey;
     }
 
     h1 {
        text-align: center;
+        color: antiquewhite;
     }
 </style>
 <%-- 0 비어있음     default --%>
@@ -47,7 +50,9 @@
 <%-- 2 사용중      red --%>
 <%-- 3 청소중      green --%>
 <div class="all">
-    <h1 >ROOM STATUS JSP</h1>
+    <br>
+    <h1>ROOM STATUS JSP</h1>
+    <br>
     <div class="room-list">
         <c:forEach var="list" items="${roomList}">
             <div class="room-status room-status-color" onclick="location.href='/room/detail?rno=<c:out value="${list.rno}"/>'">

@@ -12,44 +12,57 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <%@ include file="../include/header.jsp"%>
+<style>
+    h1 {
+        text-align: center;
+    }
+    .content-main {
+        padding: 0 40%;
+    }
 
-<div class="all">
+    div {
+        text-align: center;
+    }
+</style>
+<div class="content-all">
     <form role="form" method="post" action="/room/update">
         <h1> ROOM UPDATE </h1>
-        <div class="card">
-            <div class="card-header">호실</div>
-            <div class="card-body">
-                <input type="hidden" name="rno" value="${getRoom.rno}" />
-                <c:out value="${getRoom.rno}"/>
+        <div class="content-main">
+            <div class="card">
+                <div class="card-header">호실</div>
+                <div class="card-body">
+                    <input type="hidden" name="rno" value="${getRoom.rno}" />
+                    <c:out value="${getRoom.rno}"/>
+                </div>
             </div>
+            <br>
+            <div class="card">
+                <div class="card-header">등급</div>
+                <div class="card-body">
+                    <input type="text" name="grade" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="${getRoom.grade}">
+                </div>
+            </div><br>
+            <div class="card">
+                <div class="card-header">가격</div>
+                <div class="card-body">
+                    <input type="text" name="price" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="${getRoom.price}">
+                </div>
+            </div><br>
+            <div class="card">
+                <div class="card-header">상태</div>
+                <div class="card-body ">
+                    <select name="status" class="form-select" aria-label="Default select example">
+                        <option selected>객실상태선택하세요</option>
+                        <option value="0">예약대기</option>
+                        <option value="1">예약완료</option>
+                        <option value="2">입실완료</option>
+                        <option value="3">하우스키핑</option>
+                    </select>
+                </div>
+            </div><br>
+            <button type="submit" data-oper="update"  class="btn btn-success">Submit</button>
+            <button type="submit" data-oper="list" class="btn btn-outline-info" onclick="location.href='/'">List</button>
         </div>
-        <br>
-        <div class="card">
-            <div class="card-header">등급</div>
-            <div class="card-body">
-                <input type="text" name="grade" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="${getRoom.grade}">
-            </div>
-        </div><br>
-        <div class="card">
-            <div class="card-header">가격</div>
-            <div class="card-body">
-                <input type="text" name="price" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="${getRoom.price}">
-            </div>
-        </div><br>
-        <div class="card">
-            <div class="card-header">상태</div>
-            <div class="card-body ">
-                <select name="status" class="form-select" aria-label="Default select example">
-                    <option selected>객실상태선택하세요</option>
-                    <option value="0">예약대기</option>
-                    <option value="1">예약완료</option>
-                    <option value="2">입실완료</option>
-                    <option value="3">하우스키핑</option>
-                </select>
-            </div>
-        </div><br>
-        <button type="submit" data-oper="update"  class="btn btn-success">Submit</button>
-        <button type="submit" data-oper="list" class="btn btn-outline-info" onclick="location.href='/'">List</button>
     </form>
 </div>
 
