@@ -53,7 +53,7 @@
     </div>
 
     <!-- Button to Open the Modal -->
-    <button data-oper="update" type="button" class="btn btn-outline-primary" onclick="location.href='/room/update?rno=<c:out value="${room.rno}"/> '">
+    <button class="btn btn-outline-primary" onclick="location.href='/room/update?rno=<c:out value="${room.rno}"/> '">
         수정
     </button>
     <button class="btn btn-outline-info" onclick="location.href='/'">목록</button>

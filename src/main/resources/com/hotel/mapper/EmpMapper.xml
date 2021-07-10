@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.mapper.EmpMapper">
+
+    <resultMap id="emp" type="com.hotel.domain.EmpVO">
+        <id column="emp_id" property="eid" />
+        <result column="emp_name" property="name" />
+        <result column="emp_ssn" property="ssn" />
+        <result column="emp_phone" property="phone" />
+        <result column="dept_id" property="did" />
+        <result column="job_code" property="jid" />
+        <result column="salary" property="salary" />
+        <result column="enter_date" property="enterDate" />
+        <result column="leave_date" property="leaveDate" />
+    </resultMap>
+
+    <select id="getList" resultMap="emp">
+        select * from employee
+    </select>
+
+    <select id="detail" resultMap="emp">
+        select * from employee where emp_id = #{eid}
+    </select>
+
+    <insert id="insert">
+        insert into employee (emp_name, emp_ssn, emp_phone, dept_id, job_code, salary)
+        values (#{name}, #{ssn}, #{phone}, #{did}, #{jid}, #{salary})
+    </insert>
+
+    <update id="update">
+        update employee
+           set emp_name = #{name},
+               emp_ssn = #{ssn},
+               emp_phone = #{phone},
+               dept_id = #{did},
+               job_code = #{jid},
+               salary = #{salary}
+         where emp_id = #{eid}
+    </update>
+
+    <delete id="delete">
+        delete from employee where emp_id = #{eid}
+    </delete>
+
+</mapper>

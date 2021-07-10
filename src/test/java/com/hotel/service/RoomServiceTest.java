@@ -20,7 +20,7 @@ public class RoomServiceTest {
     @Test
     public void testUpdate() {
         RoomVO room = new RoomVO();
-        room.setRoomNo(601);
+        room.setRno(601);
         room.setGrade("standard");
         room.setPrice(80000);
         room.setStatus(3);
