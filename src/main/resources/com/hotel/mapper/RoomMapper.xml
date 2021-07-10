@@ -5,8 +5,8 @@
 
 <mapper namespace="com.hotel.mapper.RoomMapper">
     <resultMap id="room" type="com.hotel.domain.RoomVO">
-        <id column="room_no" property="roomNo" />
-        <result column="room_grade" property="roomGrade" />
+        <id column="room_no" property="rno" />
+        <result column="room_grade" property="grade" />
         <result column="price" property="price" />
         <result column="status" property="status" />
     </resultMap>
@@ -14,4 +14,12 @@
     <select id="getRoomList" resultMap="room">
         SELECT * FROM ROOM
     </select>
+
+    <select id="getRoom" resultMap="room">
+        SELECT * FROM room WHERE room_no = #{rno}
+    </select>
+
+    <update id="update">
+        UPDATE ROOM SET room_grade = #{grade}, price = #{price}, status = #{status} WHERE room_no = #{rno}
+    </update>
 </mapper>

@@ -1,5 +1,7 @@
 package com.hotel.mapper;
 
+import com.hotel.domain.RoomVO;
+import com.hotel.service.RoomService;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
@@ -19,5 +21,17 @@ public class RoomMapperTests {
     @Test
     public void testGetRoomList() {
         roomMapper.getRoomList().forEach(room -> log.info(room));
+    }
+
+    @Test
+    public void testGetRoom() {
+        log.info(roomMapper.getRoom(601));
+    }
+
+    @Test
+    public void testUpdate() {
+        RoomVO roomVO = roomMapper.getRoom(601);
+        roomVO.setStatus(0);
+        log.info(roomMapper.update(roomVO));
     }
 }
