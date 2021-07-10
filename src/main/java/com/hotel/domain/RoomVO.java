@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class RoomVO {
 
-    private int roomNo;
+    private int rno;
     private String grade;
     private int price;
     private int status;

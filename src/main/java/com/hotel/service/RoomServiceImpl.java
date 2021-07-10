@@ -16,4 +16,14 @@ public class RoomServiceImpl implements RoomService{
     public List<RoomVO> getList() {
         return mapper.getList();
     }
+
+    @Override
+    public RoomVO detail(int rno) {
+        return mapper.detail(rno);
+    }
+
+    @Override
+    public int update(RoomVO room) {
+        return mapper.update(room);
+    }
 }
