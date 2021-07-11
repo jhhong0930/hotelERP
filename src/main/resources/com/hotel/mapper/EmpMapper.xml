@@ -44,9 +44,9 @@
             emp_phone = #{phone},
             dept_id = #{did},
             job_code = #{jid},
-            salary = #{salary}
-#             enter_date = #{enterDate},
-#             leave_date = #{leaveDate}
+            salary = #{salary},
+            enter_date = #{enterDate},
+            leave_date = #{leaveDate}
         WHERE
             emp_id = #{eid}
     </update>

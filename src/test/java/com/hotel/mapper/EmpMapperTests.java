@@ -42,7 +42,7 @@ public class EmpMapperTests {
     @Test
     public void testUpdate() {
         EmpVO empVO = empMapper.getEmp(1);
-        empVO.setName("홍길동");
+        empVO.setName("홍길동1");
         empVO.setSsn("990101-2234567");
         empVO.setPhone("010-1234-5678");
         empVO.setDid("D1");

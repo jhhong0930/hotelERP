@@ -27,7 +27,7 @@
         text-align: center;
     }
 
-    .all {
+    .content-all {
         padding: 0 10%;
         background-color: darkslategrey;
     }
@@ -37,26 +37,33 @@
     }
 
     .room-status:hover {
-        background-color: dimgrey;
+        background-color:  gray;
     }
 
     h1 {
-       text-align: center;
+        text-align: center;
         color: antiquewhite;
+        font-weight: bold;
+    }
+
+    p {
+        color: darkslategrey;
+        font-weight: bold;
     }
 </style>
+
 <%-- 0 비어있음     default --%>
 <%-- 1 예약        orange --%>
 <%-- 2 사용중      red --%>
 <%-- 3 청소중      green --%>
-<div class="all">
+<div class="content-all">
     <br>
     <h1>ROOM STATUS JSP</h1>
     <br>
     <div class="room-list">
         <c:forEach var="list" items="${roomList}">
             <div class="room-status room-status-color" onclick="location.href='/room/detail?rno=<c:out value="${list.rno}"/>'">
-                ${list.rno}
+                <p>${list.rno}</p>
                 <hr>
                 <c:choose>
                     <c:when test="${list.status  == '0'}">
@@ -74,7 +81,6 @@
                 </c:choose>
             </div>
         </c:forEach>
-
     </div>
 </div>
 

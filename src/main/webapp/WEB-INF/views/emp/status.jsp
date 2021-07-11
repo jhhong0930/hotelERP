@@ -11,17 +11,19 @@
     h1 {
         text-align: center;
         color: #E2C3AB;
+        font-weight: bold;
     }
 
     table {
         text-align: center;
         background-color: #E2C3AB;
+        opacity: 1.9;
     }
 
 </style>
 
 <div class="content-all">
-    <h1>직원 전체 조회</h1>
+    <br><h1>직원 전체 조회</h1><br>
     <table class="table table-hover">
         <thead>
         <tr>

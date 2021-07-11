@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping("/emp/*")
 @AllArgsConstructor
@@ -26,6 +28,8 @@ public class EmpController {
     @GetMapping({"/detail", "/update"})
     public void getEmp(int eid, Model model) {
         model.addAttribute("getEmp", service.getEmp(eid));
+        EmpVO empVO = service.getEmp(eid);
+        log.info(empVO.getEnterDate());
     }
 
     @GetMapping("/write")
@@ -39,8 +43,13 @@ public class EmpController {
 
     @PostMapping("/update")
     public String postUpdateEmp(EmpVO empVo) {
+        Date enterDate = service.getEmp(empVo.getEid()).getEnterDate();
+        log.info("Before Update : " + enterDate);
+        if (empVo.getEnterDate() == null) {
+            empVo.setEnterDate(enterDate);
+        }
         service.update(empVo);
-        log.info(empVo);
+        log.info("After: " + empVo);
         return "redirect:/emp/detail?eid=" + empVo.getEid();
     }
 

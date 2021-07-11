@@ -86,6 +86,18 @@
                     <input type="text" name="salary" class="form-control" value="${getEmp.salary}">
                 </div>
             </div><br>
+            <div class="card">
+                <div class="card-header">입사일</div>
+                <div class="card-body">
+                    <input type="date" name="salary" class="form-control" value="${getEmp.enterDate}">
+                </div>
+            </div><br>
+            <div class="card">
+                <div class="card-header">퇴사일</div>
+                <div class="card-body">
+                    <input type="date" name="salary" class="form-control" value="${getEmp.leaveDate}">
+                </div>
+            </div><br>
             <button type="submit" data-oper="update"  class="btn btn-success">Submit</button>
             <button type="submit" data-oper="list" class="btn btn-outline-info" onclick="location.href='/emp/status'">List</button>
         </div>
