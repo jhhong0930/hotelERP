@@ -19,12 +19,33 @@
 
     <!-- 전체조회-->
     <select id="getEmpList" resultMap="emp">
-        SELECT * FROM employee
+        SELECT
+            emp_id,
+            emp_name,
+            emp_ssn,
+            emp_phone,
+            dept_id,
+            job_code,
+            salary,
+            date_format(enter_date, '%Y-%m-%d') as enter_date,
+            date_format(leave_date, '%Y-%m-%d') as leave_date
+        FROM EMPLOYEE
     </select>
 
     <!-- 상세조회 -->
     <select id="getEmp" resultMap="emp">
-        SELECT * FROM EMPLOYEE WHERE emp_id = #{eid};
+         SELECT
+               emp_id,
+               emp_name,
+               emp_ssn,
+               emp_phone,
+               dept_id,
+               job_code,
+               salary,
+               enter_date,
+               leave_date
+        FROM EMPLOYEE
+        WHERE emp_id = #{eid}
     </select>
 
     <!-- 생성 -->
@@ -55,5 +76,14 @@
     <delete id="delete">
         delete from employee where emp_id = #{eid}
     </delete>
+
+    <!-- 부서별 조회 -->
+<!--    <select id="getEmp" resultMap="emp">-->
+<!--        SELECT-->
+<!--            *-->
+<!--        FROM EMPLOYEE-->
+<!--        WHERE-->
+<!--            dept_id = #{did}-->
+<!--    </select>-->
 
 </mapper>

@@ -41,7 +41,8 @@
                     <td>${list.name}</td>
                     <td>${list.did}</td>
                     <td>${list.jid}</td>
-                    <td><fmt:formatDate value="${list.enterDate}" pattern="yyyy/MM/dd" /></td>
+<%--                    <td><fmt:formatDate value="${list.enterDate}" pattern="yyyy/MM/dd" /></td>--%>
+                    <td>${list.enterDate}</td>
                 </tr>
             </c:forEach>
         </tbody>

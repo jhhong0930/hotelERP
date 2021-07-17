@@ -29,7 +29,6 @@ public class EmpController {
     public void getEmp(int eid, Model model) {
         model.addAttribute("getEmp", service.getEmp(eid));
         EmpVO empVO = service.getEmp(eid);
-        log.info(empVO.getEnterDate());
     }
 
     @GetMapping("/write")
@@ -42,20 +41,32 @@ public class EmpController {
     }
 
     @PostMapping("/update")
-    public String postUpdateEmp(EmpVO empVo) {
-        Date enterDate = service.getEmp(empVo.getEid()).getEnterDate();
+    public String postUpdateEmp(EmpVO empVo, Model model) {
+        String enterDate = service.getEmp(empVo.getEid()).getEnterDate();
         log.info("Before Update : " + enterDate);
         if (empVo.getEnterDate() == null) {
-            empVo.setEnterDate(enterDate);
+            Date nowTime = new Date();
+            empVo.setEnterDate(enterDate + " " + nowTime);
         }
         service.update(empVo);
+
+        model.addAttribute("msg","회원 수정 성공");
+        model.addAttribute("url","/emp/detail?eid=" + empVo.getEid());
+
         log.info("After: " + empVo);
-        return "redirect:/emp/detail?eid=" + empVo.getEid();
+        return "/common/alert";
     }
 
-    @PostMapping("/delete")
-    public String postDeleteEmp(int eid) {
-        service.delete(eid);
-        return "redirect:/emp/status";
+    @RequestMapping("/delete")
+    public String postDeleteEmp(int eid, Model model) {
+
+        if (service.delete(eid) > 0) {
+            model.addAttribute("msg","회원 삭제 성공");
+            model.addAttribute("url","/emp/status");
+        } else {
+            model.addAttribute("msg","회원 삭제 실패");
+            model.addAttribute("url","/emp/status");
+        }
+        return "/common/alert";
     }
 }

@@ -5,14 +5,30 @@
 <style>
     h1 {
         text-align: center;
+        color: #E2C3AB;
+        font-weight: bold;
     }
 
     div {
         text-align: center;
+        color: darkslategrey;
+        font-weight: bold;
+    }
+
+    .card-header, .card-body {
+        color: darkslategrey;
+    }
+
+    .card {
+        text-align: center;
+        background-color: #E2C3AB;
+    }
+    .content-all {
+        background-color: darkslategrey;
     }
 </style>
 <div class="content-all">
-    <h1> "${getEmp.name}" 사원 정보 </h1>
+    <br> <h1> "${getEmp.name}" 사원 정보 </h1> <br>
     <div class="content-main">
         <div class="card">
             <div class="card-header">사원번호</div>
@@ -84,7 +100,8 @@
         <div class="card">
             <div class="card-header">입사일</div>
             <div class="card-body">
-                <fmt:formatDate value="${getEmp.enterDate}" pattern="yyyy/MM/dd" />
+<%--                <fmt:formatDate value="${getEmp.enterDate}" pattern="yyyy/MM/dd" />--%>
+                    <c:out value="${getEmp.enterDate}"/>
             </div>
         </div><br>
         <div class="card">
@@ -94,12 +111,13 @@
                     재직중
                 </c:when>
                 <c:otherwise>
-                    <<c:out value="${getEmp.leaveDate}"/>
+                    <c:out value="${getEmp.leaveDate}"/>
                 </c:otherwise>
             </c:choose>
         </div><br>
 
         <button type="submit" class="btn btn-outline-secondary" onclick="location.href='update?eid=<c:out value="${getEmp.eid}" />'">Update</button>
+        <button type="submit" class="btn btn-outline-danger" onclick="location.href='delete?eid=<c:out value="${getEmp.eid}" />'">Delete</button>
         <button type="submit" data-oper="list" class="btn btn-outline-info"  onclick="location.href='/emp/status'">List</button>
     </div>
 </div>

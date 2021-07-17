@@ -67,7 +67,7 @@
             </div><br>
             <div class="card">
                 <div class="card-header">직급</div>
-                <div class="card-body ">
+                <div class="card-body">
                     <select name="jid" class="form-select" aria-label="Default select example">
                         <option selected>직급을 선택해주세요.</option>
                         <option value="J1">인턴</option>
@@ -89,13 +89,16 @@
             <div class="card">
                 <div class="card-header">입사일</div>
                 <div class="card-body">
-                    <input type="date" name="salary" class="form-control" value="${getEmp.enterDate}">
+<%--                    <input type="date" name="enterDate" class="form-control" value="<fmt:formatDate value='${getEmp.enterDate}' pattern='yyyy-MM-dd'/>">--%>
+                    <input type="date" name="enterDate" class="form-control" value="${getEmp.enterDate}">
+                    ${getEmp.enterDate}<br>
+
                 </div>
             </div><br>
             <div class="card">
                 <div class="card-header">퇴사일</div>
                 <div class="card-body">
-                    <input type="date" name="salary" class="form-control" value="${getEmp.leaveDate}">
+                    <input type="date" name="leaveDate" class="form-control" value="${getEmp.leaveDate}">
                 </div>
             </div><br>
             <button type="submit" data-oper="update"  class="btn btn-success">Submit</button>

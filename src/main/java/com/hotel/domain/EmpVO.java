@@ -2,8 +2,6 @@ package com.hotel.domain;
 
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 public class EmpVO {
     private int eid;
@@ -13,6 +11,6 @@ public class EmpVO {
     private String did;
     private String jid;
     private int salary;
-    private Date enterDate;
-    private Date leaveDate;
+    private String enterDate;
+    private String leaveDate;
 }

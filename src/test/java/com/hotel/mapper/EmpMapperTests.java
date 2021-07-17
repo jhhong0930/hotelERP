@@ -24,7 +24,7 @@ public class EmpMapperTests {
 
     @Test
     public void testGetEmp() {
-        log.info(empMapper.getEmp(1));
+        log.info(empMapper.getEmp(10));
     }
 
     @Test
